@@ -77,7 +77,7 @@ class mywindow(QMainWindow):
         self.update()
 
     def paintEvent(self, e):
-        t_array = np.linspace(-6 * np.pi, 6 * np.pi, 6000)
+        t_array = np.linspace(0, 6 * np.pi, 6000)
         cykloid_x = x(t_array, self.r, self.a)
         cykloid_y = y(t_array, self.r, self.a)
 
