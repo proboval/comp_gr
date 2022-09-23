@@ -40,14 +40,12 @@ class mywindow(QMainWindow):
 
         sizeBut = self.ui.pushButton_2.size()
 
-
         self.ui.pushButton.clicked.connect(lambda: self.buttonClicked())
         self.ui.pushButton_2.setText("Убрать систему координат")
         self.ui.pushButton_2.clicked.connect(lambda: self.buttonClicked_1())
         self.ui.pushButton_3.clicked.connect(lambda: self.buttonClicked_2())
         self.ui.pushButton_4.clicked.connect(lambda: self.buttonClicked_3())
         self.initUI()
-
 
     def initUI(self):
         self.setWindowTitle("Декартова система координат")
@@ -79,7 +77,7 @@ class mywindow(QMainWindow):
         self.update()
 
     def paintEvent(self, e):
-        t_array = np.linspace(0, 2 * np.pi, 3000)
+        t_array = np.linspace(-6 * np.pi, 6 * np.pi, 6000)
         cykloid_x = x(t_array, self.r, self.a)
         cykloid_y = y(t_array, self.r, self.a)
 
@@ -151,7 +149,6 @@ class mywindow(QMainWindow):
         for i in range(len(cykloid_x)):
             if (size.width() - 10 >= cykloid_x[i] >= 10) and (size.height() - 145 >= cykloid_y[i] >= 5):
                 qp.drawPoint(cykloid_x[i], cykloid_y[i])
-
 
         qp.end()
 
